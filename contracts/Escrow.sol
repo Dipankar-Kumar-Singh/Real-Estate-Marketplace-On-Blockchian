@@ -31,6 +31,13 @@ contract Escrow {
         _;
     }
 
+    mapping(uint256 => bool) public isListed;
+    mapping(uint256 => uint256) public purchasePrice;
+    mapping(uint256 => uint256) public escrowAmount;
+    mapping(uint256 => address) public buyer;
+    mapping(uint256 => bool) public inspectionPassed;
+    mapping(uint256 => mapping(address => bool)) public approval;
+
     constructor(
         address _nftAddress,
         address payable _seller,

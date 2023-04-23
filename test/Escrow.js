@@ -34,20 +34,20 @@ describe('Escrow', () => {
 			lender.address
 		);
         
-         // Approve Property
-         transaction = await realEstate.connect(seller).approve(escrow.address, 1)
-         await transaction.wait()
- 
-         // List Property
-         transaction = await escrow.connect(seller).list(1, buyer.address, tokens(10), tokens(5))
-         await transaction.wait()
+           // Approve Property
+        transaction = await realEstate.connect(seller).approve(escrow.address, 1)
+        await transaction.wait()
+
+        // List Property
+        transaction = await escrow.connect(seller).list(1, buyer.address, tokens(10), tokens(5))
+        await transaction.wait()
 	}); 
 
 	describe('Deployment', () => {
-		it('Returns NFT address', async () => {
-			const result = await escrow.nftAddress()
+        it('Returns NFT address', async () => {
+            const result = await escrow.nftAddress()
             expect(result).to.be.equal(realEstate.address)
-		});
+        })
 
 		it('Returns seller', async () => {
 			const result = await escrow.seller();
