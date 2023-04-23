@@ -20,6 +20,7 @@ contract RealEstate is ERC721URIStorage {
         uint256 newItemId = _tokenIds.current();
         _mint(msg.sender, newItemId);
         _setTokenURI(newItemId, tokenURI);
+        
 
         //In blockchain, minting means validating information,
         //creating a new block, and recording that information into the blockchain1.
