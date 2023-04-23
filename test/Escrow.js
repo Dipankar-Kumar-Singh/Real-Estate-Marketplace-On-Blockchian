@@ -69,6 +69,11 @@ describe('Escrow', () => {
 		it('Update ownership', async () => {
             expect(await realEstate.ownerOf(1)).to.be.equal(escrow.address)
 		});
+
+		if('Update ownerOf property', async () => {
+			const result = await escrow.isListed(1);
+			expect(result).to.be.equal(true);
+		});
 	});
 
 });
