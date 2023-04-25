@@ -7,30 +7,36 @@ import Search from './components/Search';
 import Home from './components/Home';
 
 // ABIs
-import RealEstate from './abis/RealEstate.json'
-import Escrow from './abis/Escrow.json'
+import RealEstate from './abis/RealEstate.json';
+import Escrow from './abis/Escrow.json';
 
 // Config
 import config from './config.json';
 
 function App() {
+	const loadblockchianData = async () => {
+		// metamask inject in browser -> window.ethereum
+		const provider = new ethers.providers.Web3Provider(window.ethereum);
+		console.log(provider);
 
+    const account = await window.ethereum.request({
+      method: 'eth_requestAccounts'
+    });
 
-  const loadblockchianData = async () => {
-    // metamask inject in browser -> window.ethereum
-  }
+    console.log(account);
+	};
 
-  return (
-    <div>
+	useEffect(() => {
+		loadblockchianData();
+	}, []);
 
-      <div className='cards__section'>
-
-        <h3>Welcome to Millow</h3>
-
-      </div>
-
-    </div>
-  );
+	return (
+		<div>
+			<div className='cards__section'>
+				<h3>Welcome to Millow</h3>
+			</div>
+		</div>
+	);
 }
 
 export default App;
