@@ -15,6 +15,11 @@ import config from './config.json';
 
 function App() {
 
+
+  const loadblockchianData = async () => {
+    // metamask inject in browser -> window.ethereum
+  }
+
   return (
     <div>
 
